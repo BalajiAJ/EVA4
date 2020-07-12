@@ -1,0 +1,40 @@
+ffmpeg -i video.mp4 -vf fps=3 out%d.png
+
+
+ffmpeg -r 60 -f image2 -s 1920x1080 -i pic%04d.png -vcodec libx264 -crf 25  -pix_fmt yuv420p test.mp4
+
+
+
+
+ffmpeg -r 60 -f image2 -start_number 1 -s 1920x1080 -i inmg%02d.png -vcodec libx264 -crf 25  -pix_fmt yuv420p test.mp4
+
+
+
+or
+below commands work well
+
+
+ffmpeg -f image2 -i image%d.jpg -vcodec libx264 -b 800k video.avi
+
+ffmpeg -f image2 -i image%d.jpg -vcodec mpeg4 -b 800k video.avi
+
+
+
+for images to video
+filenames should be in out001 out002 .. out011 out012... out111
+
+
+create images from video
+
+ffmpeg -i video.mp4 -vf fps=3 out%d.png
+
+
+create video from images
+
+
+ffmpeg -f image2 -i img%03d.jpg -vcodec mpeg4 -b 800k video.avi
+
+
+best quality video - command
+============================
+ffmpeg ii img%03d.jpg -c:v libx264 -vf fps=25 -pix_fmt yuv420p out.mp4
