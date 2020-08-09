@@ -1,4 +1,4 @@
-# Session 15 Assignment
+# Session 15B Assignment
 
 Here our network will take two input images - image with foreground object + background and image with only background. The output will be the mask for the foreground object in the image and the depthmap of the image.
 
